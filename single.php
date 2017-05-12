@@ -28,7 +28,7 @@
     <?php the_content(); ?>
         </article>
             <?php endwhile; endif; ?>
-        <small>index.php</small>
+        <small>single.php</small>
         <!--end the "Loop"-->
     <?php if(is_404()) { echo '404 Error. This page does not exist.';} ?>
     

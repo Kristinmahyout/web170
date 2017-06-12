@@ -14,23 +14,50 @@ Version:1.0
 register_nav_menus(array('main' => __('Main'))); 
 //
 
-//Register Side Bar
-function my_custom_sidebar() {
-    register_sidebar(
-        array (
-            'name' => __( 'Custom', 'your-theme-domain' ),
-            'id' => 'custom-side-bar',
-            'description' => __( 'Custom Sidebar', 'your-theme-domain' ),
-            'before_widget' => '<div class="widget-content">',
-            'after_widget' => "</div>",
-            'before_title' => '<h3 class="widget-title">',
-            'after_title' => '</h3>',
-        )
-    );
-}
-add_action( 'widgets_init', 'my_custom_sidebar' );
-//
+//Register Side Bars
 
+    register_sidebars(3,array ('before_widget' => '<div id="%1$s" class="widget %2$s">',
+           'after_widget' => "</div>",
+           'before_title' => '<h3 class="widget-title">',
+           'after_title' => '</h3>',
+       )
+   );
+
+
+//get the title tag
+function get_my_title_tag(){
+    
+    global $post;
+    
+    if ( is_front_page() ){ //if user is on front-page
+        bloginfo('description');//retrieve the description
+    }
+    
+    elseif (is_page() || is_single() ) { //pages or postings
+        
+        the_title(); //get the page or postint title
+    }
+    
+    else { //if you're on all other pages
+        bloginfo('description'); //get the tagline
+    }
+    
+    if ( $post->post_parent) { //parent pages
+        echo ' | ';
+        echo get_the_title($post-post_parent); //get parent page title
+    }
+    
+    echo ' | ';
+    bloginfo('name'); //get site name
+    echo ' | ';
+    echo 'Seattle, WA.'; //location
+    }
+
+//add post page excerpts
+add_post_type_support( 'page', 'excerpt' );
+
+//Post Thumbnail Images
+add_theme_support( 'post-thumbnails' );
 //Script for Navigation
 //$script = file-get-contents ('javascriptFile.js');
 //echo "<script>". $script . "</script>";

@@ -13,25 +13,16 @@
 <meta name="description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
 
 <link href="<?php bloginfo('template_directory');?>/css/font-awesome.min.css" type="text/css" rel="stylesheet" >
-<link href="<?php bloginfo('template_directory');?>/flexslider.css" type="text/css" rel="stylesheet">
-<link href="<?php bloginfo('template_directory');?>/jquery.flexslider.js" type="text/css" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--<script src="dropdown.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    
-<script>
 
-    // flexslider
-    $(document).ready() {
-    $('.flexslider').flexslider({
-    animation: "slide"
-         });
-    });
-	
     
-</script>
+
 		
 	    <!-- Modernizer -->
   

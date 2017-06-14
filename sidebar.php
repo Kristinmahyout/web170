@@ -1,6 +1,10 @@
 <!--Sidebar-->
 <aside class="sidebar">
-<h2><?php
+    
+    
+<!--Begin Sub-navigation-->
+<div id="sub-navigation">
+    <h2><?php
     
     if (is_page()) { //if user is on any 'Page'
 
@@ -36,13 +40,22 @@
         } ?>
     
     </ul>
+    </div>
+<!--end SubNavigation-->
     
-    <!--start custom fields quote-->
+<!--start custom fields quote-->
+<div id="pullquote">
     <?php if(get_post_meta($post->ID, 'quote', true)): ?>
         <blockquote><?php echo get_post_meta($post->ID, 'quote', true); ?></blockquote>
     <?php endif; ?>
-    <!--end custom fields quote-->
+</div>
+<!--end custom fields quote-->
+
+<!--Begin widgets-->
+ <?php dynamic_sidebar(1);//this calls the widgets ?>   
+<?php dynamic_sidebar(2);?>
+<?php dynamic_sidebar(3); ?>
+<!--End widgets-->
     
     </aside>
-   
-<!--End sidebar-->
+<!--End Sidebar-->
